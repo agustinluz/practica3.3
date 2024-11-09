@@ -819,11 +819,41 @@ export class HomePage {
       }
     ];
 
-
+    public catSelect: string = '';
+  public sueldoMin: number = 0;
+  public ciudadSelect: string = '';
+  public practicas: boolean = false;
+  public filtoEmpleado!: Array<{
+    "apellidos": String,
+    "nombre": String,
+    "practicas": boolean,
+    "sueldo": number,
+    "categoria": String,
+    "ciudad": String
+  }>;
 
   constructor() {}
 
-  
+  public buscar() {
+
+    this.filtoEmpleado = this.empleados.filter(empleado => {
+      var cumpleCategoria = this.catSelect ? empleado.categoria === this.catSelect : true;
+      var cumpleSueldo = empleado.sueldo >= this.sueldoMin;
+      var cumpleCiudad = this.ciudadSelect ? empleado.ciudad === this.ciudadSelect : true;
+      var cumplePracticas = this.practicas ? empleado.practicas === true : true;
+
+      return cumpleCategoria && cumpleSueldo && cumpleCiudad && cumplePracticas;
+    });
+  }
+
+  public reset() {
+    this.catSelect = '';
+    this.sueldoMin = 0;
+    this.ciudadSelect = '';
+    this.practicas = false;
+    this.buscar();
+  }
+
   
 
 }
