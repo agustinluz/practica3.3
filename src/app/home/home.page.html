@@ -48,13 +48,15 @@
   <div *ngIf="filtoEmpleado.length > 0">
     <ion-list>
       <ion-item *ngFor="let empleado of filtoEmpleado">
-        <h2>{{ empleado.apellidos }}, {{ empleado.nombre }} </h2>
-        <h6>Ciudad: {{ empleado.ciudad }} </h6>
-        <p>| </p>
-        <h6>Categoría: {{ empleado.categoria }} </h6>
-        <h6>Sueldo: {{ empleado.sueldo }}€ </h6>
-        <p>|</p>
-        <h6>Prácticas: {{ empleado.practicas ? 'Sí' : 'No' }}</h6>
+        <div>
+          <h2>{{ empleado.apellidos }}, {{ empleado.nombre }} </h2>
+          <div>
+            <h6>Ciudad: {{ empleado.ciudad }} |  Categoría: {{ empleado.categoria }} </h6>
+          </div>
+          <div>
+            <h6>Sueldo: {{ empleado.sueldo }}€ |  Prácticas: {{ empleado.practicas ? 'Sí' : 'No' }}</h6>
+          </div>
+        </div>
       </ion-item>
     </ion-list>
   </div>
