@@ -8,17 +8,17 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    
-      <ion-radio-group [(ngModel)]="catSelect">
-        <ion-radio value="analista" justify="end">ANALISTA</ion-radio>
-        <ion-label>Categorias</ion-label>
-        <ion-radio value="programador_junior" justify="end">PROGRAMADOR JUNIOR</ion-radio><br />
-        <ion-radio value="programador_senior" justify="end">PROGRAMADOR SENIOR</ion-radio><br />
-      </ion-radio-group>
-    
+
+    <ion-radio-group [(ngModel)]="catSelect">
+      <ion-radio value="analista" justify="end">ANALISTA</ion-radio>
+      <ion-label>Categorias</ion-label>
+      <ion-radio value="programador_junior" justify="end">PROGRAMADOR JUNIOR</ion-radio><br />
+      <ion-radio value="programador_senior" justify="end">PROGRAMADOR SENIOR</ion-radio><br />
+    </ion-radio-group>
+
     <ion-item>
       <ion-label>CIUDAD</ion-label>
-      <ion-select placeholder="SELECCIONE UNA CIUDAD" value=""  [(ngModel)]="practicas">
+      <ion-select placeholder="SELECCIONE UNA CIUDAD" value="" [(ngModel)]="practicas">
         <ion-select-option value="Madrid">Madrid</ion-select-option>
         <ion-select-option value="Barcelona">Barcelona</ion-select-option>
         <ion-select-option value="Valencia">Zaragoza</ion-select-option>
@@ -36,29 +36,28 @@
       <ion-checkbox [(ngModel)]="practicas" name="practicas"></ion-checkbox>
     </ion-item>
 
-    <ion-item>
-      <ion-button expand="block" (click)="buscar()">BUSCAR</ion-button>
-    </ion-item>
 
-    <ion-item>
-      <ion-button expand="block" (click)="reset()">limpiar</ion-button>
-    </ion-item>
+    <ion-button expand="full" (click)="buscar()">BUSCAR</ion-button>
+
+
+
+    <ion-button expand="full" (click)="reset()" color="medium">limpiar</ion-button>
 
   </ion-list>
 
-    <div *ngIf="filtoEmpleado.length > 0">
-      <ion-list>
-        <ion-item *ngFor="let empleado of filtoEmpleado">
-          <h2>{{ empleado.apellidos }}, {{ empleado.nombre }} </h2>
-          <h6>Ciudad: {{ empleado.ciudad }} </h6>
-          <p>| </p>
-          <h6>Categoría: {{ empleado.categoria }} </h6>
-          <h6>Sueldo: {{ empleado.sueldo }}€ </h6>
-          <p>|</p>
-          <h6>Prácticas: {{ empleado.practicas ? 'Sí' : 'No' }}</h6>
-        </ion-item>
-      </ion-list>
-    </div>
+  <div *ngIf="filtoEmpleado.length > 0">
+    <ion-list>
+      <ion-item *ngFor="let empleado of filtoEmpleado">
+        <h2>{{ empleado.apellidos }}, {{ empleado.nombre }} </h2>
+        <h6>Ciudad: {{ empleado.ciudad }} </h6>
+        <p>| </p>
+        <h6>Categoría: {{ empleado.categoria }} </h6>
+        <h6>Sueldo: {{ empleado.sueldo }}€ </h6>
+        <p>|</p>
+        <h6>Prácticas: {{ empleado.practicas ? 'Sí' : 'No' }}</h6>
+      </ion-item>
+    </ion-list>
+  </div>
 
 
 </ion-content>
